@@ -1,0 +1,1 @@
+this is a public, // backend source access in public folder using static file

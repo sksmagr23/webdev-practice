@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event bubbling</title>
+    <style>
+      .child {
+        background-color: rgb(228, 252, 5);
+        border: 2px solid black;
+        padding: 14px;
+        margin: 14px;
+        cursor: pointer;
+      }
+      .childContainer {
+        background-color: rgb(6, 231, 252);
+        padding: 14px;
+        margin: 14px;
+      }
+      .container {
+        background-color: rgb(8, 8, 7);
+        padding: 14px;
+        margin: 14px;
+      }
+      body{
+        background-image: radial-gradient(rgb(186, 19, 233),blue,rgb(21, 106, 35));
+        background-repeat: no-repeat;
+        background-size:100vw 100vh;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <section class="childContainer">
+        <div class="child">I am a child</div>
+      </section>
+    </div>
+    <script>
+      document.querySelector(".child").addEventListener("click", (e) => {
+        e.stopPropagation(); //stopPropagation() used to stop bubbling of events i.e.only event apply on child and not on parent
+        alert("Child Was clicked");
+      });
+
+      document.querySelector(".childContainer").addEventListener("click", (e) => {
+          e.stopPropagation();
+          alert("childContainer Was clicked");
+        });
+
+      document.querySelector(".container").addEventListener("click", (e) => {
+        alert("container Was clicked");
+      });
+
+      function getRandomColor() {
+        let val1 = Math.ceil(0 + Math.random() * 255);
+        let val2 = Math.ceil(0 + Math.random() * 255);
+        let val3 = Math.ceil(0 + Math.random() * 255);
+        return `rgb(${val1}, ${val2}, ${val3})`;
+      }
+      let a = setInterval(() => {
+           document.querySelector(".childContainer").style.background = getRandomColor();
+      }, 1000);
+      console.log(a) 
+
+      /* let a = setTimeout(() => {
+        document.querySelector(".childContainer").style.background =
+          getRandomColor();
+      }, 5000); */
+
+      // clearsetInterval and clearsetTimeout is to stop the event.
+    </script>
+  </body>
+</html>

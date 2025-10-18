@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Callback and Promises</title>
+  </head>
+  <body>
+    <script>
+      //Javascript is ansynchronus in nature.
+      /* 
+      console.log("Harry is a hacker");
+      console.log("Rohan is a hecker");
+      setTimeout(() => {
+        console.log("I am inside settimeout");
+      }, 0);
+      setTimeout(() => {
+        console.log("I am inside settimeout 2");
+      }, 0);
+      console.log("The End");   
+        Order of output:-
+        Harry is a hacker
+        Rohan is a hecker
+        The End
+        I am inside settimeout
+        I am inside settimeout 2 */ //setTimeout will be excetued after entire scripts runs
+
+      //CALLBACK Functions
+      const fn = () => {
+        console.log("Nothing");
+      };
+
+      const callback = (arg, fn) => {
+        console.log(arg);
+        fn();
+      };
+
+      const loadScript = (src, callback) => {
+        let sc = document.createElement("script");
+        sc.src = src;
+        sc.onload = callback("Harry", fn);
+        document.head.append(sc);
+      };
+
+      loadScript("https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/prism.min.js",callback);
+    </script>
+  </body>
+</html>

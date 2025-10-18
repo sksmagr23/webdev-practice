@@ -1,0 +1,14 @@
+.card{
+  border: 4px groove rgb(4, 4, 59);
+  max-width: 25vw;
+}
+.card:hover{
+  transform: scale(1.01);
+  background-color: rgb(245, 245, 187);
+}
+
+.container{
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+}

@@ -1,0 +1,16 @@
+body{
+    background-color: rgb(234, 228, 156);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+h1{
+    margin: 20px;
+}
+
+a{
+    color: red;
+}

@@ -1,2 +1,1 @@
-# webdev-practice
-This is a sample repository to store and practice web dev files
+- Just pushing my practice code to GitHub. :)

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        background-color: black;
+      }
+      .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 23px;
+      }
+      .box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 45px;
+        width: 45px;
+        border: 2px solid black;
+        color: blueviolet;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 
+        Given 5 boxes, Assign a random color and a random background to each box using DOM concepts
+     -->
+    <div class="container">
+      <div class="box">Box</div>
+      <div class="box">Box</div>
+      <div class="box">Box</div>
+      <div class="box">Box</div>
+      <div class="box">Box</div>
+    </div>
+    <script>
+      function rand(element) {
+        let ran = Math.random();
+        if (ran < 0.33) {
+          element.style.backgroundColor = "yellow";
+        } else if (ran < 0.66 && ran >= 0.33) {
+          element.style.backgroundColor = "red";
+        } else {
+          element.style.backgroundColor = "blue";
+        }
+      }
+
+      let boxes = document.getElementsByClassName("box");
+      for (let i = 0; i < boxes.length; i++) {
+        rand(boxes[i]);
+        
+      }
+    </script>
+  </body>
+</html>
+<!--alternate method more advanced
+let boxes = document.getElementsByClassName("box")
+function getRandomColor(){
+    let val1 = Math.ceil(0 + Math.random()* 255);
+    let val2 = Math.ceil(0 + Math.random()* 255);
+    let val3 = Math.ceil(0 + Math.random()* 255);
+    return `rgb(${val1}, ${val2}, ${val3})`
+}
+Array.from(boxes).forEach(e=>{
+    e.style.backgroundColor = getRandomColor()
+    e.style.color = getRandomColor()
+})-->
